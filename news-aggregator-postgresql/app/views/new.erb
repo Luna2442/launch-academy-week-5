@@ -1,0 +1,21 @@
+<!-- Put your News Aggregator new.erb code here -->
+<h1>Submit Dat Dope Article</h1>
+
+<% if @name_error %>
+  <h1 style="color:red">Please provide an article name</h1>
+<% elsif @description_error %>
+  <h1 style="color:red">Please provide a description</h1>
+<% elsif @url_error %>
+  <h1 style="color:red">Please provide a valid URL</h1>
+<% end %>
+
+<form action='/articles/new' method='post'>
+  <label for='Title'>Article Name</label><br>
+  <input type='text' name='Title' id='Title' value='<%= @article_name %>'><br>
+  <label for='article_description'>Description</label><br>
+  <input type='text' name='article_description' id='article_description' value='<%= @article_description %>'><br>
+  <label for='article_url'>Article URL</label><br>
+  <input type='text' name='article_url' id='article_url' value='<%= @article_url %>'><br>
+
+  <input type='submit' value='Submit'>
+</form>

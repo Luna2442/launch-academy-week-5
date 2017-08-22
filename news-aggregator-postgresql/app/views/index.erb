@@ -1,0 +1,11 @@
+<!-- Put your News Aggregator articles.erb code here -->
+<% if @articles.to_a.empty? %>
+  <%= "There are no articles available" %>
+<% else %>
+  <% @articles.each do |article| %>
+    <h1><%= article["title"] %></h1>
+    <p><%= article["description"] %><br>
+    <a href = "<%= article['url'] %>" target=newtab><%= article["url"] %></a>
+    </p>
+  <% end %>
+<% end %>

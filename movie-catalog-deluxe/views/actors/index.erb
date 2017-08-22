@@ -1,0 +1,14 @@
+<h1>Actors</h1>
+<% if @actors.to_a.empty? %>
+  <% "There are no actors available " %>
+<% else %>
+  <ul>
+  <% @actors.each do |actor| %>
+    <li>
+      <a href = "/actors/<%= actor['id'] %>" target=newtab>
+        <%= actor["name"]%>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
