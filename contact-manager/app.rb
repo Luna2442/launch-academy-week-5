@@ -24,7 +24,7 @@ end
 post '/search' do
   first_name = params[:search].split(' ')[0]
   last_name = params[:search].split(' ')[1]
-  contact_array = Contact.where({first_name: first_name, last_name: last_name})
-  @contact = contact_array[0]
+  contacts_array = Contact.where({first_name: first_name, last_name: last_name})
+  @contact = contacts_array[0]
   erb :contact
 end
