@@ -2,7 +2,7 @@ SELECT * FROM movies WHERE year < 2000;
 SELECT * FROM categories;
 SELECT * FROM movies WHERE id = 4;
 SELECT * FROM movies ORDER BY year ASC;
-SELECT * FROM movies ORDER BY title ASC; --GROUP BY? (no movies with same year)
+SELECT year, title FROM movies GROUP BY year, title ORDER BY title ASC;
 SELECT * FROM movies LIMIT (5);
 SELECT * FROM movies ORDER BY id DESC LIMIT (5);
 UPDATE categories SET category = 'Science Fiction' WHERE id = 5;
