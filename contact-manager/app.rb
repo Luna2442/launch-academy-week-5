@@ -11,8 +11,6 @@ set :bind, '0.0.0.0'  # bind to all interfaces
 get '/' do
   @contacts = Contact.all
 
-  @relative_contacts = Contact.where(params[:search])
-
   erb :index
 end
 
@@ -27,7 +25,7 @@ post '/search' do
   first_name[0] = first_name[0].upcase!
   last_name = params[:search].split(' ')[1]
   last_name[0] = last_name[0].upcase!
-  contacts_array = Contact.where({first_name: first_name, last_name: last_name})
+  contacts_array = Contact.where(first_name: first_name, last_name: last_name)
   @contact = contacts_array[0]
   redirect "/#{@contact.id}"
 end
