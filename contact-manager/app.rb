@@ -16,6 +16,7 @@ get '/' do
   erb :index
 end
 
+
 get '/:id' do
   @contact = Contact.find(params[:id])
   erb :contact
@@ -26,7 +27,7 @@ post '/search' do
   first_name[0] = first_name[0].upcase!
   last_name = params[:search].split(' ')[1]
   last_name[0] = last_name[0].upcase!
-  contacts_array = Contact.where({first_name: first_name or last_name: last_name})
+  contacts_array = Contact.where({first_name: first_name, last_name: last_name})
   @contact = contacts_array[0]
-  erb :contact
+  redirect "/#{@contact.id}"
 end
