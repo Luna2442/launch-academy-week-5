@@ -23,8 +23,10 @@ end
 
 post '/search' do
   first_name = params[:search].split(' ')[0]
+  first_name[0] = first_name[0].upcase!
   last_name = params[:search].split(' ')[1]
-  contacts_array = Contact.where({first_name: first_name, last_name: last_name})
+  last_name[0] = last_name[0].upcase!
+  contacts_array = Contact.where({first_name: first_name or last_name: last_name})
   @contact = contacts_array[0]
   erb :contact
 end
